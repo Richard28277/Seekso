@@ -97,6 +97,19 @@ function Search() {
   const [message, setMessage] = useState(" "); // Set an initial loading message
 
   useEffect(() => {
+    // Extract the search query from the URL
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const queryParam = urlSearchParams.get('q');
+
+    // Set the page title using the search query
+    if (queryParam) {
+      document.title = `${queryParam} - Seekso Search`;
+    } else {
+      document.title = 'Seekso Search';
+    }
+  }, []);
+  
+  useEffect(() => {
     if (searchQuery && searchQuery.endsWith('?')) {
       fetchApiResponse(searchQuery)
         .then((response) => {
