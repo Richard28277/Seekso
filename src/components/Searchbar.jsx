@@ -24,7 +24,7 @@ function Searchbar() {
       <a href="/">
         <img
           id="branding"
-          src='src/assets/images/Infinite_Study_color.png'
+          src='/Infinite_Study_color.png'
           alt="Infinite Study Logo"
           width="90"
           height="35"
