@@ -80,6 +80,7 @@ async function fetchApiResponse(searchQuery, setMessage) {
       }
     };
 
+
     webSocket.onerror = (error) => {
       console.error('WebSocket error:', error);
       if (!finalResponseReceived) {

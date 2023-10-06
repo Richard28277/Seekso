@@ -14,7 +14,7 @@ const TypingEffect = ({ message }) => {
       if (currentIndex >= message.length - 1) {
         clearInterval(intervalId);
       }
-    }, 30); // Adjust the interval duration (typing speed) here
+    }, 25); // Adjust the interval duration (typing speed) here
 
     return () => {
       clearInterval(intervalId);
