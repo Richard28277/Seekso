@@ -2,6 +2,7 @@ import React from 'react';
 import Searchbar from '../components/Searchbar.jsx';
 
 function AboutUs() {
+  document.title = 'About | Seekso';
   return (
     <>  
       <meta charSet="utf-8" />  

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../App.css';
 
 function Home() {
+  document.title = 'Seekso';
   const [searchQuery, setSearchQuery] = useState('');
   const handleSubmit = (event) => {
     event.preventDefault();

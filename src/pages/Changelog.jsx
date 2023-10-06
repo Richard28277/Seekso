@@ -2,6 +2,7 @@ import React from 'react';
 import Searchbar from '../components/Searchbar.jsx';
 
 function Changelog() {
+  document.title = 'Changelog | Seekso';
   return (
     <>
       <meta charSet="utf-8" />
@@ -19,7 +20,7 @@ function Changelog() {
       <article>
         <h1> Release Notes: </h1>
         <p><strong>v3.1.0</strong> [10/6/2023 4:47 p.m.]: Added About Us page. </p>
-        <p><strong>v3.0.0</strong> [10/5/2023 4:07 p.m.]: Updated web app with React + JavaScript frontend and Python Flask server backend. Introducing SeeksoAI, a search engine assistant powered by LLMs. </p>
+        <p><strong>v3.0.0</strong> [10/5/2023 4:07 p.m.]: Updated web app with React + JavaScript frontend and Python Flask backend. Introducing SeeksoAI, a search engine assistant powered by LLMs. </p>
         <p><strong>v2.1.0</strong> [9/21/2022 11:37 p.m.]: Brand-new user interface for Seekso.</p>
         <p><strong>v2.0.2</strong> [8/28/2022 10:16 p.m.]: Bug fixes for mobile platform.</p>
         <p><strong>v2.0.1</strong> [8/27/2022 4:11 p.m.]: New user-interface. New search bar redesign.</p>
