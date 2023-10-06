@@ -116,7 +116,7 @@ function Search() {
         .then((response) => {
           console.log(response);
 
-          setMessage(" "+response);
+          setMessage(" "+response + "...");
         })
         .catch((error) => {
           console.error('API Request Error:', error);
