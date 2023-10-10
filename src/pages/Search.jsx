@@ -3,6 +3,7 @@ import '../App.css';
 import Searchbar from '../components/Searchbar.jsx';
 import { Helmet } from 'react-helmet';
 import TypingEffect from '../components/TypingEffect';
+import QueriesBox from '../components/QueriesBox';
 
 async function fetchApiResponse(searchQuery, setMessage) {
   const urlResponse = await fetch('https://seekso.pythonanywhere.com/generate_url');
@@ -96,6 +97,23 @@ function Search() {
   const searchParams = new URLSearchParams(window.location.search);
   const searchQuery = searchParams.get('q');
   const [message, setMessage] = useState(" "); // Set an initial loading message
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     // Extract the search query from the URL
@@ -150,44 +168,8 @@ function Search() {
       </script>
       <style>
         {`
-        #queries {
-          padding-top: 10px;
-          padding-left: 10px;
-          padding-right: 10px;
-          padding-bottom: 10px;
-          float: right;
-          border-radius: 15px 15px 15px 15px;
-          border: 2px solid white;
-          background: white;
-          width: 400px;
-          margin-top: 50px;
-          margin-right: 50px;
-          font-size: 14px;
-          font-family: sans-serif;
-          color: blue;
-          position: fixed;
-          right: 0;
-          top: 10;
-          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-        }
-      @media screen and (max-width: 800px) {
-        #queries {
-        position: static;
-      }
-        #branding {
-          display: none;
-        }
-     }
-      #queries a{
-        color: #FFA500;
-        text-decoration: none;
-      }
-      #queries a:hover{
-        color:#ff4500;
-        text-decoration: underline;
-      }
       .topnav {
-        box-shadow: 0 4px 3px 0.5px rgba(0, 0, 0, 0.1);
+          box-shadow: ${hasScrolled ? '0 4px 3px 0.5px rgba(0, 0, 0, 0.1)' : 'none'};
       }
       .gs-title, .gs-snippet {
           font-family: sans-serif;
@@ -245,6 +227,7 @@ function Search() {
       </style>
       <Searchbar />
       {/* Content below */}
+      <QueriesBox message={message} />
       <div className="results">
         <Helmet>
           <script
@@ -253,10 +236,6 @@ function Search() {
           ></script>
         </Helmet>
         <div className="gcse-searchresults-only"></div>
-      </div>
-      <div id="queries"><b>Seekso AI🔍</b>
-        <br />
-        <TypingEffect message={message} />
       </div>
     </>
   );

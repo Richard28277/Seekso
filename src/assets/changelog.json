@@ -1,0 +1,128 @@
+[
+    {
+      "version": "v3.2.0",
+      "date": "10/9/2023 8:47 p.m.",
+      "description": "Added close button for SeeksoAI. Modified searchbar appearance in hover or focus state. Adopted json structure for changelog. Optimized overall appearance of results page."
+    },
+    {
+      "version": "v3.1.0",
+      "date": "10/6/2023 4:47 p.m.",
+      "description": "Added About Us page. Fixed issues with SeeksoAI display."
+    },
+    {
+      "version": "v3.0.0",
+      "date": "10/5/2023 4:07 p.m.",
+      "description": "Updated web app with React + JS frontend and Python Flask backend. Introducing SeeksoAI, a search engine assistant powered by LLMs."
+    },
+    {
+      "version": "v2.1.0",
+      "date": "9/21/2022 11:37 p.m.",
+      "description": "Brand-new user interface for Seekso."
+    },
+    {
+      "version": "v2.0.2",
+      "date": "8/28/2022 10:16 p.m.",
+      "description": "Bug fixes for mobile platform."
+    },
+    {
+      "version": "v2.0.1",
+      "date": "8/27/2022 4:11 p.m.",
+      "description": "New user-interface. New search bar redesign."
+    },
+    {
+      "version": "v2.0.0",
+      "date": "8/26/2022 9:05 a.m.",
+      "description": "New theme. Infinite Search is now Seekso!"
+    },
+    {
+      "version": "v1.3.2",
+      "date": "7/15/2022 5:12 p.m.",
+      "description": "Added Google Analytics."
+    },
+    {
+      "version": "v1.3.1",
+      "date": "6/6/2022 11:10 a.m.",
+      "description": "Added webkit support."
+    },
+    {
+      "version": "v1.3.0",
+      "date": "3/24/2022 9:21 p.m.",
+      "description": "Changed search results interface, including font style, increased font size, and new button style at bottom of results."
+    },
+    {
+      "version": "v1.2.4",
+      "date": "3/23/2022 11:09 p.m.",
+      "description": "Added box shadow for search bar and search button. Transition time for search bar set to 0.02s."
+    },
+    {
+      "version": "v1.2.3",
+      "date": "3/9/2022 8:25 p.m.",
+      "description": "Lowered font size for trending box from 22px to 20px."
+    },
+    {
+      "version": "v1.2.2",
+      "date": "3/2/2022 9:41 p.m.",
+      "description": "Lowered image resolution throughout our homepage for even faster loading speed."
+    },
+    {
+      "version": "v1.2.1",
+      "date": "3/2/2022 3:30 p.m.",
+      "description": "Updated filter system. New 'Q&A' filter added to help search questions."
+    },
+    {
+      "version": "v1.2.0",
+      "date": "2/26/2022 11:36 p.m.",
+      "description": "Introducing mobile version of Infinite Search. Favicon icon changed with new colors and rounded corners."
+    },
+    {
+      "version": "v1.1.5",
+      "date": "2/24/2022 12:27 p.m.",
+      "description": "Added box shadow for all 'articles.' Resized text and spacing."
+    },
+    {
+      "version": "v1.1.4",
+      "date": "2/23/2022 7:47 p.m.",
+      "description": "Changed CSS code for trending box and search button."
+    },
+    {
+      "version": "v1.1.3",
+      "date": "2/23/2022 3:25 p.m.",
+      "description": "Added trending topics to homepage and search results page. Bug fixes and improvements."
+    },
+    {
+      "version": "v1.1.2",
+      "date": "2/19/2022 3:15 p.m.",
+      "description": "Fixed bugs and other known issues."
+    },
+    {
+      "version": "v1.1.1",
+      "date": "2/6/2022 2:13 p.m.",
+      "description": "New favicon updated, now with a blue-themed logo."
+    },
+    {
+      "version": "v1.1.0",
+      "date": "2/3/2022 8:21 p.m.",
+      "description": "New layout for search results page. Navigation menu position fixed to top. New color changes for hover/active links and search button. New font family added for changelog page. Readjusted text alignment. Minor bug fixes and improvements."
+    },
+    {
+      "version": "v1.0.3",
+      "date": "1/30/2022 10:57 p.m.",
+      "description": "Changelog box added to homepage. Minor formatting adjustments."
+    },
+    {
+      "version": "v1.0.2",
+      "date": "1/29/2022 4:08 p.m.",
+      "description": "New layout for search bar. Added color change for hover and active links. Minor bug fixes and improvements."
+    },
+    {
+      "version": "v1.0.1",
+      "date": "1/29/2022 8:41 a.m",
+      "description": "Bug fixes. Resized search bar and results page."
+    },
+    {
+      "version": "v1.0.0",
+      "date": "1/28/2022 9:30 p.m.",
+      "description": "Created homepage and search results page. Added logo and menu bars."
+    }
+]
+  

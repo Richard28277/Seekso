@@ -1,0 +1,56 @@
+#closeButton {
+    position: absolute;
+    background: rgb(255, 105, 105);
+    color: white;
+    font-size: 14px;
+    top: 5px;
+    right: 10px;
+    border: none;
+    cursor: pointer;
+    width: auto; /* Adjust the width as needed */
+    height: auto; /* Adjust the height as needed */
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    box-shadow: none; /* Remove the box-shadow */
+    outline: none;
+}
+  
+#queries {
+    padding: 10px;
+    float: right;
+    border-radius: 15px;
+    border: 2px solid white;
+    background: white;
+    width: 400px;
+    margin-top: 90px;
+    margin-right: 50px;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: blue;
+    position: fixed;
+    right: 0;
+    top: 10px; /* Add 'px' to the 'top' property for a valid value */
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+  
+@media screen and (max-width: 800px) {
+    #queries {
+        display: none; /* Hide the #queries element */
+    }
+
+    #closeButton {
+        position: static; /* Change the position to static for the #closeButton */
+        display: block; /* Show the #closeButton element */
+    }
+}
+
+#queries a {
+    color: #FFA500;
+    text-decoration: none;
+}
+  
+#queries a:hover {
+    color: #ff4500;
+    text-decoration: underline;
+}
+  

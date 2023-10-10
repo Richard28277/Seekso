@@ -48,7 +48,7 @@ function Home() {
       <div className="topnav">
         <a href="https://infinitestudy.weebly.com/">Learn</a>
         <a href="#">Contact</a>
-        <a href="https://seekso.org/more.html">More</a>
+        <a href="#">More</a>
         {/* Right menu bar */}
         <div className="topnav-right">
           <a href="/changelog">Changelog</a>

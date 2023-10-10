@@ -1,4 +1,3 @@
-import '../App.css';
 import React, { useEffect, useState } from 'react';
 
 function getSearchQueryFromURL() {
@@ -9,16 +8,17 @@ function getSearchQueryFromURL() {
 }
 
 function Searchbar() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const query = getSearchQueryFromURL();
+  const [searchQuery, setSearchQuery] = useState(getSearchQueryFromURL());
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(searchQuery)
     window.location.href = `/search?q=${searchQuery}`;
   };
+
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
+
   return (
     <div className="topnav">
       <a href="/">
@@ -31,29 +31,28 @@ function Searchbar() {
         />
       </a>
       <form name="web search" onSubmit={handleSubmit}>
-      <input
-        id="search"
-        name="q"
-        size="75"
-        type="text"
-        placeholder={query ? query : 'Search the web'}
-        value={searchQuery}
-        onChange={handleInputChange}
-        required
-      />
-      <input
-        id="rcorners"
-        value="Search"
-        type="submit"
-        autoFocus
-        style={{ cursor: 'pointer' }}
-      />
-      <div className="topnav-right">
-        <a href="/changelog">Changelog</a>
-        <a href="/about">About</a>
-      </div>
-    </form>
-      
+        <input
+          id="search"
+          name="q"
+          size="75"
+          type="text"
+          placeholder={searchQuery || "Search the web"}
+          value={searchQuery} // Bind the value to the searchQuery state
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          id="rcorners"
+          value="Search"
+          type="submit"
+          autoFocus
+          style={{ cursor: 'pointer' }}
+        />
+        <div className="topnav-right">
+          <a href="/changelog">Changelog</a>
+          <a href="/about">About</a>
+        </div>
+      </form>
     </div>
   );
 }
