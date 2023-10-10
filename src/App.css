@@ -106,8 +106,15 @@
   text-decoration: none;
   width: 600px;
   height: 150px;
-  z-index: 0; 
+  
 } 
+
+@media screen and (max-width: 1200px) {
+  .results{
+    padding-left:0.01px;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .results{
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
