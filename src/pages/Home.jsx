@@ -47,8 +47,8 @@ function Home() {
       {/* menu bar */}
       <div className="topnav">
         <a href="https://infinitestudy.weebly.com/">Learn</a>
-        <a href="#">Contact</a>
-        <a href="#">More</a>
+        <a href="https://volunhour.vercel.app/">VolunHour</a>
+        <a href="https://github.com/Richard28277/">Contact</a>
         {/* Right menu bar */}
         <div className="topnav-right">
           <a href="/changelog">Changelog</a>
