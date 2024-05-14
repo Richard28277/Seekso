@@ -29,13 +29,13 @@ async function fetchApiResponse(searchQuery, setMessage) {
           chat: {
             domain: 'general',
             temperature: 0.5,
-            max_tokens: 50,
+            max_tokens: 500,
           },
         },
         payload: {
           message: {
             text: [
-              { role: 'user', content: "You are Seekso AI, a search assistant. Provide short one sentence answer in English: " + searchQuery }
+              { role: 'user', content: "You are Seekso AI, a search assistant developed by Seekso. Provide short one sentence answer in English: " + searchQuery }
                   ],
           },
         },
