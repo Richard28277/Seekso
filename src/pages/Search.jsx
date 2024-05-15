@@ -27,16 +27,17 @@ async function fetchApiResponse(searchQuery, setMessage) {
         },
         parameter: {
           chat: {
-            domain: 'general',
-            temperature: 0.5,
-            max_tokens: 500,
+        domain: 'general',
+        temperature: 0.5,
+        max_tokens: 1000,
           },
         },
         payload: {
           message: {
             text: [
-              { role: 'user', content: "You are Seekso AI, a search assistant developed by Seekso. Provide short one sentence answer in English: " + searchQuery }
-                  ],
+              { role: 'system', content: "You are Seekso AI, a search assistant developed by Seekso." },
+              { role: 'user', content: "Provide short one sentence answer in English: " + searchQuery }
+            ],
           },
         },
       };
@@ -129,7 +130,8 @@ function Search() {
   }, []);
   
   useEffect(() => {
-    if (searchQuery && searchQuery.endsWith('?')) {
+    if (searchQuery) {
+    // if (searchQuery && searchQuery.endsWith('?')) {
       fetchApiResponse(searchQuery)
         .then((response) => {
           console.log(response);
