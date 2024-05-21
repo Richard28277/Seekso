@@ -6,92 +6,28 @@ import TypingEffect from '../components/TypingEffect';
 import QueriesBox from '../components/QueriesBox';
 
 async function fetchApiResponse(searchQuery, setMessage) {
-  const urlResponse = await fetch('https://seekso.pythonanywhere.com/generate_url');
-  if (!urlResponse.ok) {
-    throw new Error(`API request failed with status ${urlResponse.status}`);
+  try {
+    // Send a GET request to the /generate_url endpoint with the search query
+    const response = await fetch(`https://seekso.pythonanywhere.com/generate_url?message=${encodeURIComponent(searchQuery)}`);
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    // Parse the JSON response
+    const data = await response.json();
+
+    // Extract the chatbot's message from the response
+    const chatbotMessage = data.message;
+
+    // Set the chatbot's message in the UI or return it
+    setMessage(chatbotMessage);
+    return chatbotMessage;
+  } catch (error) {
+    console.error('Error fetching API response:', error);
+    // Handle the error appropriately
   }
-
-  const urlData = await urlResponse.json();
-  const apiUrl = urlData.url;
-
-  const webSocket = new WebSocket(apiUrl);
-  let responseString = ''; // Initialize an empty string to store the response
-  let finalResponseReceived = false; // Flag to track if the final response is received
-
-  return new Promise((resolve, reject) => {
-    webSocket.onopen = () => {
-      const requestPayload = {
-        header: {
-          app_id: 'cdf45631',
-          uid: '123123',
-        },
-        parameter: {
-          chat: {
-        domain: 'general',
-        temperature: 0.5,
-        max_tokens: 1000,
-          },
-        },
-        payload: {
-          message: {
-            text: [
-              { role: 'system', content: "You are Seekso AI, a search assistant developed by Seekso." },
-              { role: 'user', content: "Provide short one sentence answer in English: " + searchQuery }
-            ],
-          },
-        },
-      };
-
-      webSocket.send(JSON.stringify(requestPayload));
-    };
-
-    webSocket.onmessage = (event) => {
-      if (finalResponseReceived) {
-        // Ignore subsequent responses after the final response is received
-        return;
-      }
-
-      const response = JSON.parse(event.data);
-      console.log('WebSocket message received:', response);
-
-      if (response.payload && response.payload.choices && response.payload.choices.text) {
-        const content = response.payload.choices.text[0].content;
-
-        if (content !== undefined) {
-          if (responseString === '') {
-            responseString += content; // No space before the first content
-          } else {
-            responseString += `${content}`; // Add a space before subsequent content
-          }
-        }
-      }
-
-      if (response.header && response.header.status === 2) {
-        // This is the final result, resolve the promise and set the flag
-        finalResponseReceived = true;
-        resolve(responseString);
-        webSocket.close();
-      }
-    };
-
-    webSocket.onclose = (event) => {
-      console.log('WebSocket connection closed:', event);
-      if (!finalResponseReceived) {
-        // Reject if the final response was not received before closing
-        reject(new Error('WebSocket connection closed'));
-      }
-    };
-
-
-    webSocket.onerror = (error) => {
-      console.error('WebSocket error:', error);
-      if (!finalResponseReceived) {
-        // Reject if the final response was not received before the error
-        reject(error);
-      }
-    };
-  });
 }
+
 
 
 function Search() {
@@ -132,11 +68,11 @@ function Search() {
   useEffect(() => {
     if (searchQuery) {
     // if (searchQuery && searchQuery.endsWith('?')) {
-      fetchApiResponse(searchQuery)
+      fetchApiResponse(searchQuery, setMessage)
         .then((response) => {
           console.log(response);
 
-          setMessage(" "+response + "...");
+          setMessage(" "+response + "");
         })
         .catch((error) => {
           console.error('API Request Error:', error);
