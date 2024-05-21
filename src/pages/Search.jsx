@@ -66,8 +66,7 @@ function Search() {
   }, []);
   
   useEffect(() => {
-    if (searchQuery) {
-    // if (searchQuery && searchQuery.endsWith('?')) {
+    if (searchQuery && searchQuery.endsWith('?')) {
       fetchApiResponse(searchQuery, setMessage)
         .then((response) => {
           console.log(response);
